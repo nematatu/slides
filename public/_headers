@@ -1,8 +1,0 @@
-/pdf/*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
-
-/thumbs/*
-  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
-
-/_astro/*
-  Cache-Control: public, max-age=31536000, immutable

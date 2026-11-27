@@ -1,10 +1,15 @@
 node_modules/
 dist/
-.astro/
+.void/
 .wrangler/
+.cloudflare/
+.void-wrangler.jsonc
+.env
+.env.*
+*.tsbuildinfo
 .DS_Store
 # prepare.mjs が生成するもの
 public/pdf/
 public/thumbs/
-src/data/decks.json
 public/pdfjs/
+src/data/decks.json

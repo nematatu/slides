@@ -1,5 +1,7 @@
 import decks from "./data/decks.json";
 
+export const SITE = "https://slides.amatatu.com";
+
 export type Deck = {
 	slug: string;
 	title: string;

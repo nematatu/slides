@@ -1,21 +1,30 @@
 {
 	"name": "amatatu-slides",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"private": true,
 	"type": "module",
+	"engines": {
+		"node": ">=24.22"
+	},
 	"scripts": {
-		"dev": "node scripts/prepare.mjs && astro dev",
-		"build": "node scripts/prepare.mjs && astro build",
-		"preview": "npm run build && wrangler dev",
-		"deploy": "npm run build && wrangler deploy"
+		"prepare-decks": "node scripts/prepare.mjs",
+		"dev": "npm run prepare-decks && vite",
+		"build": "npm run prepare-decks && vite build",
+		"preview": "npm run build && vite preview",
+		"deploy": "void deploy",
+		"postinstall": "void prepare"
 	},
 	"dependencies": {
-		"@napi-rs/canvas": "^1.2.1",
-		"astro": "^7.4.13",
+		"hono": "^4.11.9",
 		"pdfjs-dist": "^6.5.438",
-		"yaml": "^2.9.1"
+		"vue": "^3.5.30"
 	},
 	"devDependencies": {
-		"wrangler": "^4.168.0"
+		"@napi-rs/canvas": "^1.2.1",
+		"@void/vue": "1.12.2",
+		"typescript": "^6.0.3",
+		"vite": "^8.0.10",
+		"void": "1.12.2",
+		"yaml": "^2.9.1"
 	}
 }

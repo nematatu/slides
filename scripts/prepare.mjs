@@ -91,7 +91,7 @@ async function main() {
 			}
 		}
 		const data = new Uint8Array(await readFile(src));
-		const task = getDocument({ data, cMapUrl, cMapPacked: true, standardFontDataUrl, isEvalSupported: false, verbosity: 0 });
+		const task = getDocument({ data, cMapUrl, cMapPacked: true, standardFontDataUrl, verbosity: 0 });
 		const doc = await task.promise;
 		const first = (await doc.getPage(1)).getViewport({ scale: 1 });
 

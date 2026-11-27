@@ -1,9 +1,5 @@
----
-import Base from "../layouts/Base.astro";
----
-
-<Base title="Not Found">
+<template>
 	<main class="container">
 		<p class="muted">Not Found — <a href="/">一覧へ</a></p>
 	</main>
-</Base>
+</template>

@@ -15,8 +15,7 @@ jobs:
           node-version: 26
           cache: npm
       - run: npm ci
-      - run: npm run build
       - name: Deploy to Cloudflare Workers
-        run: npx wrangler deploy
+        run: npx void deploy --platform cloudflare
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
