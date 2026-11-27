@@ -37,7 +37,7 @@ async function renderThumb(doc, dest) {
 	const ctx = canvas.getContext("2d");
 	ctx.fillStyle = "#fff";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	await page.render({ canvasContext: ctx, viewport }).promise;
+	await page.render({ canvas: null, canvasContext: ctx, viewport }).promise;
 	await writeFile(dest, canvas.toBuffer("image/png"));
 }
 
@@ -91,7 +91,8 @@ async function main() {
 			}
 		}
 		const data = new Uint8Array(await readFile(src));
-		const doc = await getDocument({ data, cMapUrl, cMapPacked: true, standardFontDataUrl, isEvalSupported: false, verbosity: 0 }).promise;
+		const task = getDocument({ data, cMapUrl, cMapPacked: true, standardFontDataUrl, isEvalSupported: false, verbosity: 0 });
+		const doc = await task.promise;
 		const first = (await doc.getPage(1)).getViewport({ scale: 1 });
 
 		const thumb = path.join(thumbOut, `${slug}.png`);
@@ -109,7 +110,7 @@ async function main() {
 			pages: doc.numPages,
 			aspect: first.width / first.height,
 		});
-		await doc.destroy();
+		await task.destroy();
 		console.log(`✓ ${slug} (${decks.at(-1).pages}p)`);
 	}
 

@@ -10,9 +10,9 @@
 		"deploy": "npm run build && wrangler deploy"
 	},
 	"dependencies": {
-		"@napi-rs/canvas": "^0.1.100",
-		"astro": "^5.18.2",
-		"pdfjs-dist": "^4.10.38",
+		"@napi-rs/canvas": "^1.2.1",
+		"astro": "^7.4.13",
+		"pdfjs-dist": "^6.5.438",
 		"yaml": "^2.9.1"
 	},
 	"devDependencies": {
